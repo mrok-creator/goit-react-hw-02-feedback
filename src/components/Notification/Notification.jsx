@@ -1,9 +1,8 @@
 import s from './notification.module.css';
 
-function Notification({ message, total }) {
-  const className = !total ? `${s.container}` : `${s.hidden}`;
+function Notification({ message }) {
   return (
-    <div className={className}>
+    <div className={s.container}>
       <h2 className={s.title}>{message}</h2>
     </div>
   );

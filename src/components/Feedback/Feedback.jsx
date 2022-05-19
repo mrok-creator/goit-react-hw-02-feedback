@@ -45,14 +45,17 @@ class Feedback extends Component {
         </Section>
 
         <Section title={'Statistics'}>
-          <Statistic
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
-          />
-          <Notification message={'There is no feedback'} total={total} />
+          {total ? (
+            <Statistic
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          ) : (
+            <Notification message={'There is no feedback'} total={total} />
+          )}
         </Section>
       </>
     );
