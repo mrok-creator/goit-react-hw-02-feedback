@@ -33,4 +33,8 @@ function FeedbackOptions({ onLeaveFeedback }) {
   );
 }
 
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
+
 export default FeedbackOptions;

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import s from './section.module.css';
 
 function Section({ title, children }) {
@@ -8,6 +10,14 @@ function Section({ title, children }) {
     </div>
   );
 }
+
+Section.defaultProps = {
+  title: [],
+};
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
 export default Section;
 //

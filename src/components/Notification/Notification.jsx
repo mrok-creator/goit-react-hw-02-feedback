@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import s from './notification.module.css';
 
 function Notification({ message }) {
@@ -7,5 +9,13 @@ function Notification({ message }) {
     </div>
   );
 }
+
+Notification.defaultProps = {
+  message: '',
+};
+
+Notification.propTypes = {
+  message: PropTypes.string,
+};
 
 export default Notification;
