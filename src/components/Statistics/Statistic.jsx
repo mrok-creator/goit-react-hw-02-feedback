@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import s from '../Feedback/feedback.module.css';
+import s from './statistic.module.css';
 
 function Statistic({ good, neutral, bad, total, positivePercentage }) {
   const className = total ? `${s.container}` : `${s.hidden}`;

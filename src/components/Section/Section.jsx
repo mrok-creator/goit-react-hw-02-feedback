@@ -12,11 +12,10 @@ function Section({ title, children }) {
 }
 
 Section.defaultProps = {
-  title: [],
+  title: '',
 };
 Section.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node.isRequired,
 };
 
 export default Section;

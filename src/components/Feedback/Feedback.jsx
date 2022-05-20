@@ -5,7 +5,7 @@ import FeedbackOptions from 'components/FeedbackOptions';
 import Section from 'components/Section';
 import Notification from 'components/Notification';
 
-import s from './feedback.module.css';
+const options = ['good', 'neutral', 'bad'];
 
 class Feedback extends Component {
   state = {
@@ -14,34 +14,36 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  handleClick = e => {
-    const item = e.target.id;
+  handleClick = item => {
     this.setState(prevState => ({
       [item]: prevState[item] + 1,
     }));
   };
 
-  countTotalFeedback = () => {
+  countTotalFeedback() {
     const items = Object.values(this.state);
-    const total = items.reduce((item, acc) => acc + item, 0);
+    const total = items.reduce((item, acc) => (acc += item), 0);
     return total;
-  };
+  }
 
-  countPositiveFeedbackPercentage = () => {
+  countPositiveFeedbackPercentage() {
     const total = this.countTotalFeedback();
     const goodFeedback = Number(this.state.good);
     return Math.ceil((goodFeedback / total) * 100);
-  };
+  }
 
   render() {
     const total = this.countTotalFeedback();
     const percentage = this.countPositiveFeedbackPercentage();
-    const positivePercentage = percentage ? percentage : '0';
+    const positivePercentage = percentage ? percentage : 0;
     const { good, neutral, bad } = this.state;
     return (
       <>
         <Section title={'Please Live Feedback'}>
-          <FeedbackOptions onLeaveFeedback={this.handleClick} />
+          <FeedbackOptions
+            options={options}
+            onLeaveFeedback={this.handleClick}
+          />
         </Section>
 
         <Section title={'Statistics'}>
