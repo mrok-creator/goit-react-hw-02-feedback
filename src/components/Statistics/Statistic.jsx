@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import s from './statistic.module.css';
 
 function Statistic({ good, neutral, bad, total, positivePercentage }) {
-  const className = total ? `${s.container}` : `${s.hidden}`;
   return (
-    <div className={className}>
+    <div className={s.container}>
       <p className={s.text}>Good: {good}</p>
       <p className={s.text}>Neutral: {neutral} </p>
       <p className={s.text}>Bad: {bad}</p>

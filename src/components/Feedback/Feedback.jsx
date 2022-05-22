@@ -28,7 +28,7 @@ class Feedback extends Component {
 
   countPositiveFeedbackPercentage() {
     const total = this.countTotalFeedback();
-    const goodFeedback = Number(this.state.good);
+    const goodFeedback = this.state.good;
     return Math.ceil((goodFeedback / total) * 100);
   }
 
@@ -56,7 +56,7 @@ class Feedback extends Component {
               positivePercentage={positivePercentage}
             />
           ) : (
-            <Notification message={'There is no feedback'} total={total} />
+            <Notification message={'There is no feedback'} />
           )}
         </Section>
       </>
